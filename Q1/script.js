@@ -1,4 +1,4 @@
- 
+
 function showLogin() {
   document.getElementById("signup").classList.add("hidden");
   document.getElementById("login").classList.remove("hidden");
@@ -16,15 +16,15 @@ function showResultBoard() {
 }
 
 function signup() {
-  let username = document.getElementById("signupstudentname").value;
+  let studentname = document.getElementById("signupstudentname").value;
   let password = document.getElementById("signupPassword").value;
 
-  if (username && password) {
-    let user = {
-      username: username,
+  if (studentname && password) {
+    let student = {
+      studentname: studentname,
       password: password
     };
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("student", JSON.stringify(student));
     alert("Signup successful! Please login.");
     showLogin();
   } else {
@@ -33,36 +33,36 @@ function signup() {
 }
 
 function login() {
-  let username = document.getElementById("loginUsername").value;
+  let studentname = document.getElementById("loginstudentname").value;
   let password = document.getElementById("loginPassword").value;
 
-  let user = JSON.parse(localStorage.getItem("user"));
+  let student = JSON.parse(localStorage.getItem("student"));
 
-  if (user && user.username === username && user.password === password) {
+  if (student && student.studentname === studentname && student.password === password) {
     alert("Login successful!");
     showResultBoard();
     loadResults();
   } else {
-    alert("Invalid credentials.");
+    alert("Invalid data.");
   }
 }
 
 function logout() {
-  location.reload(); 
+  location.reload();
 }
 
 function loadResults() {
-  let loader = document.querySelector('.loader');
+  let Loading = document.querySelector('.Loading');
   let tbody = document.querySelector('tbody');
 
-  loader.style.display = "block"; 
+  Loading.style.display = "block";
 
   fetch("https://jsonplaceholder.typicode.com/users")
-    .then(function(response) {
+    .then(function (response) {
       return response.json();
     })
-    .then(function(students) {
-      students.forEach(function(student) {
+    .then(function (students) {
+      students.forEach(function (student) {
         let score = Math.floor(Math.random() * 100) + 1;
         let row = `
           <tr>
@@ -74,8 +74,8 @@ function loadResults() {
         tbody.innerHTML += row;
       });
     })
-    .catch(function(error) {
-console.log(error);
+    .catch(function (error) {
+      console.log(error);
     })
-  
+
 }
