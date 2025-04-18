@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Student Result System</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div class="container">
+      <!-- Signup Form -->
+      <div id="signup">
+         <h2>Signup</h2>
+         <input type="text" id="signupstudentname" placeholder="Student Name" required>
+         <input type="password" id="signupPassword" placeholder="Password" required>
+         <button onclick="signup()">Signup</button>
+         <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login" class="hidden">
+         <h2>Login</h2>
+         <input type="text" id="loginUsername" placeholder="Username" required>
+         <input type="password" id="loginPassword" placeholder="Password" required>
+         <button onclick="login()">Login</button>
+         <p>Don't have an account? <a href="#" onclick="showSignup()">Signup</a></p>
+      </div>
+
+      <!-- Result Board -->
+      <div id="result" class="hidden">
+         <h2> Student Result Board</h2>
+         <div class="loader">Loading results...</div>
+         <table>
+            <thead>
+               <tr>
+                  <th>Student Name</th>
+                  <th>Email</th>
+                  <th>Result</th>
+               </tr>
+            </thead>
+            <tbody></tbody>
+         </table>
+         <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
+   <script src="script.js"></script>
+
+</body>
+
+</html>
+
+<!-- 
+Project Objective: 
+
+The objective of this project is to build a private Result Scoreboard that requires user authentication. Users should be able to sign up, log in, and access the result page only after authentication.
+
+
+
+ Project Requirements: 
+
+
+
+1.  HTML Structure (5 points): 
+
+   - Create an HTML file with the necessary structure for the result scoreboard, login, and signup pages.
+
+   - Include an input form to add new results and a dynamic list to display existing scores.
+
+   - Add input fields for student name, subject, score, and date in the result page.
+
+   - Include forms for user login and signup with necessary input fields.
+
+
+
+2.  User Authentication (15 points): 
+
+   - Implement user signup functionality (signup) to allow users to create accounts.
+
+   - Store user data securely, and validate that all required fields are provided during signup.
+
+   - Implement user login functionality (login) to authenticate users.
+
+   - Use secure methods for password storage, such as hashing.
+
+   - Ensure that only authenticated users can access the result page.
+
+
+
+3.  Adding Results (5 points): 
+
+   - Modify the addResult function to associate results with the logged-in user.
+
+   - Validate that the student name, subject, and score are provided before adding a result.
+
+   - Format the result data and add it to the scoreboard dynamically.
+
+
+
+4.  Displaying Results (5 points): 
+
+   - Modify the addResultToScoreboard function to display only the results associated with the logged-in user.
+
+   - Display each result with the student name, subject, score, and date.
+
+
+
+5.  API Integration (10 points): 
+
+   - Utilize an API to persist user and result data.
+
+   - Implement functions to fetch user data and result data from the API on page load and send data to the API when results are added or modified.
+
+
+
+6.  Editing and Deleting Results (5 points): 
+
+   - Modify the editResult and deleteResult functions to ensure that users can only modify or delete their own results.
+
+
+
+7.  Sorting, Searching, and Filtering (10 points): 
+
+   - Add sorting feature by score (ascending and descending) for the logged-in user's results.
+
+   - Add searching feature by student name or subject for the logged-in user's results.
+
+   - Add filter feature by subject 
+
+
+
+8.  User Interaction (5 points): 
+
+   - Ensure that input fields are cleared after successfully adding a new result.
+
+   - Implement a visually appealing user interface (UI) with proper error handling during login and signup. -->
